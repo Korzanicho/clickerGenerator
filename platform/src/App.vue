@@ -1,26 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <main class="game">
+    <section class="game__section game__section--left">
+      <ClickerPanel />
+    </section>
+    <section class="game__section game__section--center">
+      Panel centralny
+    </section>
+    <section class="game__section game__section--right">
+      Panel prawy
+    </section>
+  </main>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ClickerPanel from './components/ClickerPanel/index'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ClickerPanel,
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+.game
+  display: flex
+  width: 100%
+  min-height: 100vh
+  background: url('./assets/background.png')
+  &__section
+    padding: 20px
+    &--left
+      flex-basis: 30%
+      border-right: 3px dashed #000
+    &--center
+      flex-basis: 50%
+      border-right: 3px dashed #000
+    &--right
+      flex-basis: 20%
 </style>
