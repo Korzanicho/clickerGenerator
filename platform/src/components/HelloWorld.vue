@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1 @click="money=5">{{ msg }}</h1>
+    {{ money }}
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -31,11 +32,26 @@
 </template>
 
 <script>
+import 'es6-promise/auto'
+
 export default {
   name: 'HelloWorld',
+  
   props: {
     msg: String
-  }
+  },
+
+  computed: {
+    money: {
+      get() {
+        console.log(this.$store.getters.money);
+        return this.$store.getters.money;
+      },
+      set(value) {
+        this.$store.commit('updateMoney', value);
+      },
+    },
+  },
 }
 </script>
 
