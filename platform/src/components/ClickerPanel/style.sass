@@ -1,2 +1,26 @@
 .ClickerPanel
 	display: block
+	&__money-count
+		text-align: center
+		font-size: 35px
+		margin: 0 0 10px 0
+	&__money
+		max-width: 100%
+		margin: 20px 0
+		img
+			transition: .3s
+			max-width: 100%
+			cursor: pointer
+			box-shadow: 4px 4px 8px #59C478
+		a
+			&:hover
+				img
+					box-shadow: 5px 5px 10px #59C478
+			&:active
+				img
+					box-shadow: 1px 1px 1px #59C478
+					transform: scale(.99)
+	&__money-per-sec
+		width: 100%
+		text-align: center
+		display: inline-block

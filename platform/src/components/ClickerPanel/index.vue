@@ -1,6 +1,14 @@
 <template>
   <div class="ClickerPanel">
-		Tutaj klikać
+		<h3 class="ClickerPanel__money-count">
+			{{ money }} Money
+		</h3>
+		<span class="ClickerPanel__money-per-sec">per second: {{ moneyPerSecond }}</span>
+		<div class="ClickerPanel__money">
+			<a @click.prevent="money=5">
+				<img src="../../assets/money.png" alt="Money">
+			</a>
+		</div>
   </div>
 </template>
 

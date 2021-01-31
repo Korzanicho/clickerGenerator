@@ -24,6 +24,10 @@ export default {
 </script>
 
 <style lang="sass">
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
+*
+  font-family: 'Londrina Solid', cursive
+
 .game
   display: flex
   width: 100%
