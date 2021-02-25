@@ -1,7 +1,7 @@
 export default {
   state: () => ({
     money: 0,
-    moneyPerSecond: 10,
+    moneyPerSecond: 0,
   }),
 
   actions: {

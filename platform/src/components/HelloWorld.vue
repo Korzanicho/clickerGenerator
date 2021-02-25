@@ -42,7 +42,6 @@ export default {
   computed: {
     money: {
       get() {
-        console.log(this.$store.getters.money);
         return this.$store.getters.money;
       },
       set(value) {

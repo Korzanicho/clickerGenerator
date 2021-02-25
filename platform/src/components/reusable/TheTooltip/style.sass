@@ -1,0 +1,40 @@
+.TheTooltip
+	z-index: 2
+	cursor: pointer
+	position: relative
+	&:after, &:before
+		opacity: 0
+		visibility: hidden
+		box-sizing: inherit
+		pointer-events: none
+	&:before
+		left: 50%
+		padding: 7px
+		width: 160px
+		top: 110%
+		color: #fff
+		font-size: 14px
+		line-height: 1.2
+		border-radius: 3px
+		position: absolute
+		margin-bottom: 5px
+		margin-left: -80px
+		text-align: center
+		background-color: #000
+		content: attr(data-tooltip)
+		background-color: hsla(0, 0%, 20%, 0.9)
+	&:after
+		width: 0
+		left: 50%	
+		bottom: 150%
+		font-size: 0
+		content: " "
+		line-height: 0
+		margin-left: -5px
+		position: absolute
+		border-left: 5px solid transparent
+		border-right: 5px solid transparent
+		border-top: 5px solid hsla(0, 0%, 20%, 0.9)
+	&:hover:before
+		opacity: 1
+		visibility: visible

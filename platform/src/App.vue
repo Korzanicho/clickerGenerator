@@ -7,18 +7,20 @@
       Panel centralny
     </section>
     <section class="game__section game__section--right">
-      Panel prawy
+      <ShopPanel />
     </section>
   </main>
 </template>
 
 <script>
-import ClickerPanel from './components/ClickerPanel/index'
+import ClickerPanel from './components/ClickerPanel/index';
+import ShopPanel from './components/ShopPanel/index';
 
 export default {
   name: 'App',
   components: {
     ClickerPanel,
+    ShopPanel,
   }
 }
 </script>

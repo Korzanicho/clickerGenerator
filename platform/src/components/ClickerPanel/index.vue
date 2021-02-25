@@ -5,7 +5,7 @@
 		</h3>
 		<span class="ClickerPanel__money-per-sec">per second: {{ moneyPerSecond }}</span>
 		<div class="ClickerPanel__money">
-			<a @click.prevent="money=5">
+			<a @click.prevent="money=1">
 				<img src="../../assets/money.png" alt="Money">
 			</a>
 		</div>

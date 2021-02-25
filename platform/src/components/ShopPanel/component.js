@@ -1,6 +1,14 @@
+import ShopPanelItem from './ShopPanelItem/index';
+import TheTooltip from '@/components/reusable/TheTooltip/index.vue'
+
 export default {
-  name: 'ClickerPanel',
+  name: 'ShopPanel',
   
+  components: {
+    TheTooltip,
+    ShopPanelItem,
+  },
+
   props: {
     //
 	},
@@ -8,20 +16,24 @@ export default {
 	data() {
     return {
       //
-    };
+    }
 	},
 	
 	mounted() {
-		this.updateMoneyEverySecond();
+		//
 	},
 
   computed: {
+    items: {
+      get() {
+        return this.$store.getters.items;
+      },
+    },
     money: {
       get() {
         return this.$store.getters.money;
       },
       set(value) {
-        console.log(value);
         this.$store.commit('updateMoney', value);
       },
     },
@@ -36,10 +48,6 @@ export default {
 	},
 	
 	methods: {
-		updateMoneyEverySecond() {
-			setInterval(() => {
-				this.money = this.moneyPerSecond;
-			}, 1000);
-		},
+    //
 	},
 }
