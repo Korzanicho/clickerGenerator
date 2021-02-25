@@ -21,7 +21,6 @@ export default {
         return this.$store.getters.money;
       },
       set(value) {
-        console.log(value);
         this.$store.commit('updateMoney', value);
       },
     },
@@ -31,6 +30,14 @@ export default {
       },
       set(value) {
         this.$store.commit('updateMoneyPerSecond', value);
+      },
+    },
+    moneyPerClick: {
+      get() {
+        return this.$store.getters.moneyPerClick;
+      },
+      set(value) {
+        this.$store.commit('updateMoneyPerClick', value);
       },
     },
 	},

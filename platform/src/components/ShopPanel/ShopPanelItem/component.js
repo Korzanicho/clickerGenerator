@@ -14,7 +14,7 @@ export default {
 	// },
 	
 	mounted() {
-    console.log(this.item.cost());
+    //
 	},
 
   computed: {
@@ -38,7 +38,6 @@ export default {
           quantity, 
           itemName: this.item.name,
         });
-        console.log(this.item.cost());
       }
     }	},
 }

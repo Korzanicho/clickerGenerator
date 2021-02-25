@@ -1,6 +1,7 @@
 export default {
   state: () => ({
     money: 0,
+    moneyPerClick: 1,
     moneyPerSecond: 0,
   }),
 
@@ -12,7 +13,11 @@ export default {
     updateMoney(state, money) {
       state.money += money;
     },
+    updateMoneyPerClick(state, money) {
+      state.moneyPerClick += money;
+    },
     updateMoneyPerSecond(state, money) {
+      console.log('money per sec');
       state.moneyPerSecond += money;
     },
   },
@@ -23,6 +28,9 @@ export default {
     },
     moneyPerSecond: (state) => {
       return state.moneyPerSecond;
+    },
+    moneyPerClick: (state) => {
+      return state.moneyPerClick;
     },
   }
 };
