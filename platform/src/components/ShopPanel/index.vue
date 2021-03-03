@@ -8,9 +8,7 @@
 				:key="item.slug"
 				:tooltip-text="item.description()"
 			>
-				<ShopPanelItem
-					:item="item"
-				/>
+				<ShopPanelItem :item="item" />
 			</TheTooltip>
 		</div>
   </div>

@@ -7,11 +7,12 @@ export default {
       level: 1,
       image: 'beggar-image.png',
       type: 'perclick',
-      description() { return `Working as a bootblack, you get ${this.profit()} per click on your current level (${this.level})`},
-      cost() { 
-        return this.count*20*this.profit()+5; 
+      isShowing: true,
+      description() { return `Working as a bootblack, you get ${this.profit()} per click on your current level (${this.level})`; },
+      cost() {
+        return this.count * 20 * 5 * this.profit() + 30;
       },
-      profit() { return 1*this.count },
+      profit() { return 1 * this.count; },
     },
     {
       name: 'Beggar',
@@ -20,28 +21,47 @@ export default {
       level: 1,
       image: 'beggar-image.png',
       type: 'persecond',
-      description() { return `A  Beggar  will collect money for you. \n
-      Profit on current level (${this.level}): ${this.profit()} per second`},
-      cost() { 
-        return this.count*20*this.profit()+10; 
+      isShowing: false,
+      description() {
+        return `A  Beggar  will collect money for you. \n
+      Profit on current level (${this.level}): ${this.profit()} per second`;
       },
-      profit() { return 10*this.count },
+      cost() {
+        return this.count * 20 * 5 * this.profit() * 10 + 300;
+      },
+      profit() { return 1 * this.count; },
+    },
+    {
+      name: 'Cleaner',
+      slug: 'cleaner',
+      count: 0,
+      level: 1,
+      image: 'beggar-image.png',
+      type: 'perclick',
+      isShowing: false,
+      description() { return `Working as a cleaner, you get ${this.profit()} per click on your current level (${this.level})`; },
+      cost() {
+        return this.count * 20 * 5 * this.profit() + 1000;
+      },
+      profit() { return 3 * this.count; },
     },
   ]),
 
   actions: {
-		//
+    //
   },
 
   mutations: {
     updateCount(state, payload) {
-      const item = state.find( item => item.name === payload.itemName);
+      const item = state.find((currentItem) => currentItem.name === payload.itemName);
       const index = state.indexOf(item);
-      state[index].count = state[index].count + payload.quantity;
+      // eslint-disable-next-line
+      state[index].count += payload.quantity;
+
+      // eslint-disable-next-line
+      if (state[index].count === 1 && state[index + 1]) state[index + 1].isShowing = true;
 
       if (state[index].type === 'persecond') {
-        console.log(state[index].profit() > 0);
-        if (state[index].profit() > 0) this.commit('updateMoneyPerSecond', -state[index].profit());
         this.commit('updateMoneyPerSecond', state[index].profit());
       } else if (state[index].type === 'perclick') {
         this.commit('updateMoneyPerClick', state[index].profit());
@@ -50,12 +70,10 @@ export default {
   },
 
   getters: {
-    items: (state) => {
-      return state;
-    },
+    items: (state) => state,
     itemCost: (state, itemName) => {
-      const item = state.find( item => item.name === itemName);
+      const item = state.find((currentItem) => currentItem.name === itemName);
       return item.cost;
-    }
+    },
   },
 };

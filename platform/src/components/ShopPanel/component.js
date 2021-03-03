@@ -26,7 +26,7 @@ export default {
   computed: {
     items: {
       get() {
-        return this.$store.getters.items;
+        return this.$store.getters.items.filter((item) => item.isShowing === true);
       },
     },
     money: {

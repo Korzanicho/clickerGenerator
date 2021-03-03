@@ -17,7 +17,6 @@ export default {
       state.moneyPerClick += money;
     },
     updateMoneyPerSecond(state, money) {
-      console.log('money per sec');
       state.moneyPerSecond += money;
     },
   },

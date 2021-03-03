@@ -2,6 +2,8 @@
 	z-index: 2
 	cursor: pointer
 	position: relative
+	&:hover
+		z-index: 3
 	&:after, &:before
 		opacity: 0
 		visibility: hidden
@@ -26,7 +28,7 @@
 	&:after
 		width: 0
 		left: 50%	
-		bottom: 150%
+		bottom: -10%
 		font-size: 0
 		content: " "
 		line-height: 0
@@ -34,7 +36,8 @@
 		position: absolute
 		border-left: 5px solid transparent
 		border-right: 5px solid transparent
-		border-top: 5px solid hsla(0, 0%, 20%, 0.9)
-	&:hover:before
+		border-bottom: 5px solid hsla(0, 0%, 20%, 0.9)
+	&:hover:before,
+	&:hover:after,
 		opacity: 1
 		visibility: visible
