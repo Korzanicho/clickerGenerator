@@ -10,9 +10,9 @@ export default {
       isShowing: true,
       description() { return `Working as a bootblack, you get ${this.profit()} per click on your current level (${this.level})`; },
       cost() {
-        return this.count * 20 * 5 * this.profit() + 30;
+        return this.count * 20 * 5 * (this.profit() / this.level) + 30;
       },
-      profit() { return 1 * this.count; },
+      profit() { return 1 * this.level; },
     },
     {
       name: 'Beggar',
@@ -27,9 +27,9 @@ export default {
       Profit on current level (${this.level}): ${this.profit()} per second`;
       },
       cost() {
-        return this.count * 20 * 5 * this.profit() * 10 + 300;
+        return this.count * 20 * 5 * (this.profit() / this.level) * 10 + 300;
       },
-      profit() { return 1 * this.count; },
+      profit() { return 1 * this.level; },
     },
     {
       name: 'Cleaner',
@@ -41,9 +41,9 @@ export default {
       isShowing: false,
       description() { return `Working as a cleaner, you get ${this.profit()} per click on your current level (${this.level})`; },
       cost() {
-        return this.count * 20 * 5 * this.profit() + 1000;
+        return this.count * 20 * 5 * (this.profit() / this.level) + 1000;
       },
-      profit() { return 3 * this.count; },
+      profit() { return 3 * this.level; },
     },
   ]),
 
@@ -52,6 +52,13 @@ export default {
   },
 
   mutations: {
+    updateItemLevel(state, itemSlug) {
+      console.log(itemSlug);
+      const item = state.find((currentItem) => currentItem.slug === itemSlug);
+      const index = state.indexOf(item);
+      // eslint-disable-next-line
+      state[index].level += 1;
+    },
     updateCount(state, payload) {
       const item = state.find((currentItem) => currentItem.name === payload.itemName);
       const index = state.indexOf(item);
