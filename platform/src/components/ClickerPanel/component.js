@@ -1,19 +1,19 @@
 export default {
   name: 'ClickerPanel',
-  
+
   props: {
     //
-	},
+  },
 
-	data() {
+  data() {
     return {
       //
     };
-	},
-	
-	mounted() {
-		this.updateMoneyEverySecond();
-	},
+  },
+
+  mounted() {
+    this.updateMoneyEverySecond();
+  },
 
   computed: {
     money: {
@@ -40,13 +40,13 @@ export default {
         this.$store.commit('updateMoneyPerClick', value);
       },
     },
-	},
-	
-	methods: {
-		updateMoneyEverySecond() {
-			setInterval(() => {
-				this.money = this.moneyPerSecond;
-			}, 1000);
-		},
-	},
-}
+  },
+
+  methods: {
+    updateMoneyEverySecond() {
+      setInterval(() => {
+        this.money = this.moneyPerSecond;
+      }, 1000);
+    },
+  },
+};

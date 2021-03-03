@@ -4,23 +4,23 @@ export default {
   props: {
     tooltipText: {
       type: String,
-      default: ''
-    }
-	},
+      default: '',
+    },
+  },
 
-	// data: {
+  // data: {
   //   //
-	// },
-	
-	mounted() {
-		//
-	},
+  // },
+
+  mounted() {
+    //
+  },
 
   computed: {
     //
-	},
-	
-	methods: {
+  },
+
+  methods: {
     //
-	},
-}
+  },
+};

@@ -6,30 +6,27 @@ export default {
   }),
 
   actions: {
-		//
+    //
   },
 
   mutations: {
     updateMoney(state, money) {
+      // eslint-disable-next-line
       state.money += money;
     },
     updateMoneyPerClick(state, money) {
+      // eslint-disable-next-line
       state.moneyPerClick += money;
     },
     updateMoneyPerSecond(state, money) {
+      // eslint-disable-next-line
       state.moneyPerSecond += money;
     },
   },
 
   getters: {
-    money: (state) => {
-      return state.money;
-    },
-    moneyPerSecond: (state) => {
-      return state.moneyPerSecond;
-    },
-    moneyPerClick: (state) => {
-      return state.moneyPerClick;
-    },
-  }
+    money: (state) => state.money,
+    moneyPerSecond: (state) => state.moneyPerSecond,
+    moneyPerClick: (state) => state.moneyPerClick,
+  },
 };

@@ -13,16 +13,16 @@
 </template>
 
 <script>
-import ClickerPanel from './components/ClickerPanel/index';
-import ShopPanel from './components/ShopPanel/index';
+import ClickerPanel from './components/ClickerPanel/index.vue';
+import ShopPanel from './components/ShopPanel/index.vue';
 
 export default {
   name: 'App',
   components: {
     ClickerPanel,
     ShopPanel,
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass">

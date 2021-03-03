@@ -1,9 +1,9 @@
-import ShopPanelItem from './ShopPanelItem/index';
-import TheTooltip from '@/components/reusable/TheTooltip/index.vue'
+import TheTooltip from '../reusable/TheTooltip/index.vue';
+import ShopPanelItem from './ShopPanelItem/index.vue';
 
 export default {
   name: 'ShopPanel',
-  
+
   components: {
     TheTooltip,
     ShopPanelItem,
@@ -11,17 +11,17 @@ export default {
 
   props: {
     //
-	},
+  },
 
-	data() {
+  data() {
     return {
       //
-    }
-	},
-	
-	mounted() {
-		//
-	},
+    };
+  },
+
+  mounted() {
+    //
+  },
 
   computed: {
     items: {
@@ -45,9 +45,9 @@ export default {
         this.$store.commit('updateMoneyPerSecond', value);
       },
     },
-	},
-	
-	methods: {
+  },
+
+  methods: {
     //
-	},
-}
+  },
+};

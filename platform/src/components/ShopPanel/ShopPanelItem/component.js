@@ -1,21 +1,21 @@
 export default {
   name: 'ShopPanelItem',
-  
+
   components: {
     // TheTooltip,
   },
 
   props: {
     item: Object,
-	},
+  },
 
-	// data: {
+  // data: {
 
-	// },
-	
-	mounted() {
+  // },
+
+  mounted() {
     //
-	},
+  },
 
   computed: {
     cost: {
@@ -28,16 +28,17 @@ export default {
         return this.$store.getters.money;
       },
     },
-	},
-	
-	methods: {
+  },
+
+  methods: {
     handleBuyItem(quantity) {
       if (this.item.cost() <= this.money) {
         this.$store.commit('updateMoney', -this.item.cost());
         this.$store.commit('updateCount', {
-          quantity, 
+          quantity,
           itemName: this.item.name,
         });
       }
-    }	},
-}
+    },
+  },
+};

@@ -1,11 +1,11 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
 
-import items from "./items.js";
-import currency from "./currency.js";
+import items from './items';
+import currency from './currency';
 
 export default createStore({
   modules: {
     items,
     currency,
-  }
+  },
 });

@@ -1,6 +1,9 @@
 <template>
-  <div class="TheTooltip" :data-tooltip="tooltipText">
-		<slot />
+  <div
+    class="TheTooltip"
+    :data-tooltip="tooltipText"
+  >
+    <slot />
   </div>
 </template>
 
