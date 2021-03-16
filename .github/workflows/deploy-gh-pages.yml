@@ -19,6 +19,7 @@ jobs:
 
       - name: Install and build
         run: |
+          ls
           cd ./Platform
           npm Install
           npm run build
