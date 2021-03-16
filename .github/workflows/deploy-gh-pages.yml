@@ -1,0 +1,6 @@
+name: Deploy to GH Pages
+# on - kiedy akcja ma się wykonać
+on:
+  push:
+    branches:
+      - "master"
