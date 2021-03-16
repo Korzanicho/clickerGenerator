@@ -24,8 +24,13 @@ jobs:
           npm install
           npm run build
 
+      - name: Add .nojekyll
+        run: |
+          ls
+          touch build/.nojekyll
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          brach: gh-pages
+          branch: gh-pages
           
