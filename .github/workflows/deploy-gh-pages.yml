@@ -5,6 +5,7 @@ on:
     branches:
       - "master"
       - "shop-section"
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -20,7 +21,7 @@ jobs:
       - name: Install and build
         run: |
           cd ./platform
-          npm Install
+          npm install
           npm run build
 
       - name: Add .nojekyll
