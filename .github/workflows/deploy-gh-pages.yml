@@ -26,7 +26,7 @@ jobs:
 
       - name: Add .nojekyll
         run: |
-          touch platform/build/.nojekyll
+          touch platform/dist/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.0
