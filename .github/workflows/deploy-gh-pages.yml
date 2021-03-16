@@ -4,3 +4,30 @@ on:
   push:
     branches:
       - "master"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      BASE_PATH: clickerGenerator
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install and build
+        run: |
+          cd ./Platform
+          npm Install
+          npm run build
+
+      - name: Add .nojekyll
+        run: |
+          touch out/.nojekyll
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          brach: gh-pages
+          
