@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "master"
+      - "shop-section"
 
 jobs:
   build-and-deploy:
