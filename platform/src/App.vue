@@ -30,6 +30,8 @@ export default {
 *
   font-family: 'Londrina Solid', cursive
 
+// body
+//   overflow-y: hidden
 .game
   display: flex
   width: 100%
@@ -45,4 +47,5 @@ export default {
       border-right: 3px dashed #000
     &--right
       flex-basis: 20%
+      //overflow-y: scroll
 </style>
