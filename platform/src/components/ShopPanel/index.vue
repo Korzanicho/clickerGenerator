@@ -18,13 +18,20 @@
         />
       </TheTooltip>
     </div>
+    <ShopPanelQuantitySetter
+      :items-quantity="itemsQuantity"
+      @changeItemsQuantity="(quantity) => itemsQuantity = quantity"
+    />
     <div class="ShopPanel__items">
       <TheTooltip
         v-for="item in items"
         :key="item.slug"
         :tooltip-text="item.description()"
       >
-        <ShopPanelItem :item="item" />
+        <ShopPanelItem
+          :item="item"
+          :items-quantity="itemsQuantity"
+        />
       </TheTooltip>
     </div>
   </div>

@@ -1,6 +1,7 @@
 import ShopPanelItem from './ShopPanelItem/index.vue';
 import TheTooltip from '../reusable/TheTooltip/index.vue';
 import ShopPanelUpgradeItem from './ShopPanelUpgradeItem/index.vue';
+import ShopPanelQuantitySetter from './ShopPanelQuantitySetter/index.vue';
 
 export default {
   name: 'ShopPanel',
@@ -9,6 +10,7 @@ export default {
     TheTooltip,
     ShopPanelItem,
     ShopPanelUpgradeItem,
+    ShopPanelQuantitySetter,
   },
 
   props: {
@@ -17,7 +19,7 @@ export default {
 
   data() {
     return {
-      //
+      itemsQuantity: 1,
     };
   },
 

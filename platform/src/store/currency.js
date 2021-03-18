@@ -1,6 +1,6 @@
 export default {
   state: () => ({
-    money: Infinity,
+    money: 0,
     moneyPerClick: 1,
     moneyPerSecond: 0,
   }),

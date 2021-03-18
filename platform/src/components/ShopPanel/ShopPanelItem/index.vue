@@ -2,7 +2,7 @@
   <div
     class="ShopPanelItem"
     :class="item.count !== 0 ? 'ShopPanelItem--active' : ''"
-    @click="handleBuyItem(1)"
+    @click="handleBuyItem(itemsQuantity)"
   >
     <img
       :src="require(`../../../assets/${item.image}`)"
@@ -14,9 +14,9 @@
       <br>
       <span
         class="ShopPanelItem__cost"
-        :class="item.cost() > money ? 'ShopPanelItem__cost--too-expensive' : ''"
+        :class="item.cost(itemsQuantity) > money ? 'ShopPanelItem__cost--too-expensive' : ''"
       >
-        Cost: {{ item.cost() }}
+        Cost: {{ item.cost(itemsQuantity) }}
       </span>
     </div>
     <span class="ShopPanelItem__count">{{ item.count }}</span>

@@ -7,6 +7,7 @@ export default {
 
   props: {
     item: Object,
+    itemsQuantity: Number,
   },
 
   // data: {
@@ -20,7 +21,7 @@ export default {
   computed: {
     cost: {
       get() {
-        return this.$store.getters.items('Eloszka');
+        return this.$store.getters.items();
       },
     },
     money: {
@@ -32,8 +33,8 @@ export default {
 
   methods: {
     handleBuyItem(quantity) {
-      if (this.item.cost() <= this.money) {
-        this.$store.commit('updateMoney', -this.item.cost());
+      if (this.item.cost(quantity) <= this.money) {
+        this.$store.commit('updateMoney', -(this.item.cost(quantity)));
         this.$store.commit('updateCount', {
           quantity,
           itemName: this.item.name,
