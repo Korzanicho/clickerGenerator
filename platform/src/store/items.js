@@ -9,8 +9,12 @@ export default {
       type: 'perclick',
       isShowing: true,
       description() { return `Working as a bootblack, you get ${this.profit()} per click on your current level (${this.level})`; },
-      cost() {
-        return this.count * 20 * 5 * (this.profit() / this.level) + 30;
+      cost(quantity) {
+        let cost = 0;
+        for (let i = 0; i < quantity; i += 1) {
+          cost += this.count + i * 20 * 5 * (this.profit() / this.level) + 30;
+        }
+        return cost;
       },
       profit() { return 1 * this.level; },
     },
@@ -26,8 +30,12 @@ export default {
         return `A  Beggar  will collect money for you. \n
       Profit on current level (${this.level}): ${this.profit()} per second`;
       },
-      cost() {
-        return this.count * 20 * 5 * (this.profit() / this.level) * 10 + 300;
+      cost(quantity) {
+        let cost = 0;
+        for (let i = 0; i < quantity; i += 1) {
+          cost += this.count + i * 20 * 5 * (this.profit() / this.level) * 10 + 300;
+        }
+        return cost;
       },
       profit() { return 1 * this.level; },
     },
@@ -40,8 +48,12 @@ export default {
       type: 'perclick',
       isShowing: false,
       description() { return `Working as a cleaner, you get ${this.profit()} per click on your current level (${this.level})`; },
-      cost() {
-        return this.count * 20 * 5 * (this.profit() / this.level) + 1000;
+      cost(quantity) {
+        let cost = 0;
+        for (let i = 0; i < quantity; i += 1) {
+          cost += this.count + quantity * 20 * 5 * (this.profit() / this.level) + 1000;
+        }
+        return cost;
       },
       profit() { return 3 * this.level; },
     },
@@ -53,7 +65,6 @@ export default {
 
   mutations: {
     updateItemLevel(state, itemSlug) {
-      console.log(itemSlug);
       const item = state.find((currentItem) => currentItem.slug === itemSlug);
       const index = state.indexOf(item);
       // eslint-disable-next-line
@@ -66,7 +77,7 @@ export default {
       state[index].count += payload.quantity;
 
       // eslint-disable-next-line
-      if (state[index].count === 1 && state[index + 1]) state[index + 1].isShowing = true;
+      if (state[index].count > 1 && state[index + 1]) state[index + 1].isShowing = true;
 
       if (state[index].type === 'persecond') {
         this.commit('updateMoneyPerSecond', state[index].profit());

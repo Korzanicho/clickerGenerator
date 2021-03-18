@@ -7,7 +7,6 @@
       :alt="item.name"
       :src="require(`../../../assets/${item.image}`)"
     >
-    {{ item.name }}
   </div>
 </template>
 
