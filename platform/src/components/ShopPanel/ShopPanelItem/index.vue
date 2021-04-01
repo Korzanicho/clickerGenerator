@@ -9,7 +9,7 @@
       alt=""
       class="ShopPanelItem__image"
     >
-    <div>
+    <div style="flex-basis: 80%;">
       <span class="ShopPanelItem__name">{{ item.name }}</span>
       <br>
       <span

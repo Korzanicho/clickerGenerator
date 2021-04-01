@@ -1,0 +1,36 @@
+name: Deploy to GH Pages
+# on - kiedy akcja ma się wykonać
+on:
+  push:
+    branches:
+      - "master"
+      - "shop-section"
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      BASE_PATH: clickerGenerator
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install and build
+        run: |
+          cd ./platform
+          npm install
+          npm run build
+
+      - name: Add .nojekyll
+        run: |
+          touch platform/dist/.nojekyll
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: platform/dist
+          
